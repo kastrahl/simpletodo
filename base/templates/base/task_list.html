@@ -10,11 +10,13 @@
     <table>
         <tr>
             <th>Items</th>
+            <th> </th>
         </tr>
         <!-- loop through all the items  -->
-        {% for task in object_list %}   <!-- this si django templating syntax-->
+        {% for task in tasks %}   <!-- this si django templating syntax-->
         <tr>
             <td>{{task.title}}</td>
+            <td><a href="{% url 'task' task.id %}">View</a></td>
         </tr>
         {% empty %}
         <h3>No Items in List</h3>
