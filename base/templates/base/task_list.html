@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do</title>
+</head>
+<body>
+    <h1>My To Do List</h1>
+    <table>
+        <tr>
+            <th>Items</th>
+        </tr>
+        <!-- loop through all the items  -->
+        {% for task in object_list %}   <!-- this si django templating syntax-->
+        <tr>
+            <td>{{task.title}}</td>
+        </tr>
+        {% empty %}
+        <h3>No Items in List</h3>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
