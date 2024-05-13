@@ -7,16 +7,21 @@
 </head>
 <body>
     <h1>My To Do List</h1>
+    <a href="{% url 'task-create' %}"> Add Items</a>
     <table>
         <tr>
-            <th>Items</th>
+            <th>Items</th>              <!-- th acts as cell header -->
+            <th> </th>                     #td only shows if we've a th for each td
+            <th> </th>
             <th> </th>
         </tr>
         <!-- loop through all the items  -->
         {% for task in tasks %}   <!-- this si django templating syntax-->
         <tr>
-            <td>{{task.title}}</td>
+            <td>{{task.title}}</td>                                     <!-- td acts as cell value -->
             <td><a href="{% url 'task' task.id %}">View</a></td>
+            <td><a href="{% url 'task-update' task.id %}">Edit</a></td>
+            <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>
         </tr>
         {% empty %}
         <h3>No Items in List</h3>
