@@ -1,3 +1,4 @@
+<!-- homepage tasks listing  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,12 +7,30 @@
     <title>To Do</title>
 </head>
 <body>
+    
+    {% if request.user.is_authenticated %}
+    <p>{{ request.user }}</p>
+    <!-- <a href="{% url 'logout' %}">Log Out</a>       Won't work error 405, need csrf token by django -->
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+    {% else %}
+    <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
+
+    <hr>
     <h1>My To Do List</h1>
     <a href="{% url 'task-create' %}"> Add Items</a>
+
+    <form method="get" id="search-form" >
+        <input type="search" name="search-area" value="{% if search_input %}{{ search_input }}{% else %}Search{% endif %}" onfocus="clearSearchHint(this)" onblur="restoreSearchHint(this)">
+        <input type="submit" value="Search">
+    </form>
     <table>
         <tr>
             <th>Items</th>              <!-- th acts as cell header -->
-            <th> </th>                     #td only shows if we've a th for each td
+            <th> </th>                  <!--   #td only shows if we've a th for each td-->
             <th> </th>
             <th> </th>
         </tr>
@@ -28,5 +47,20 @@
         {% endfor %}
     </table>
 </body>
+
+<script>
+    function clearSearchHint(input) {
+        if (input.value === "Search") {
+            input.value = "";
+        }
+    }
+    function restoreSearchHint(input) {
+        if (input.value === "") {
+            document.getElementById("search-form").submit(); // Submit the form when search input is cleared
+            input.value = "Search";
+        }
+    }
+</script>
+
 </html>
 
