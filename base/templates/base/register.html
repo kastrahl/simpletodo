@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+{% extends 'base/main.html' %} 
+{% block content %}
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,11 +10,24 @@
 <body>
     <h1> Login</h1>
     <form method="post">
+        {% csrf_token %}                    
+        {{form.as_p}}                         
+        <input type="submit" value="Register">
+    </form>
+
+    <p>Already Have an Account?<a href="{% url 'login' %}"> Login </a></p>
+</body>
+</html> -->
+
+
+
+<h1> Login</h1>
+    <form method="post">
         {% csrf_token %}                    <!-- authentication token -->
         {{form.as_p}}                       <!-- as_p is for styling -->  
         <input type="submit" value="Register">
     </form>
 
     <p>Already Have an Account?<a href="{% url 'login' %}"> Login </a></p>
-</body>
-</html>
+
+{% endblock content %}
