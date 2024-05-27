@@ -111,6 +111,7 @@ a.styled-button-delete:active {
 }
 
 /* Search Bar  */
+/*
 .search {
     display: flex;
     align-items: center;
@@ -125,11 +126,11 @@ a.styled-button-delete:active {
     background-color: #f4f2f2;
     border: none;
     color: #646464;
-    /* padding: 0.7rem 1rem 0.7rem 1rem; */
+    padding: 0.7rem 1rem 0.7rem 1rem; 
     border-radius: 30px;
     width: 100%;
     transition: all ease-in-out .5s;
-    /* margin-right: -2rem; */
+    margin-right: -2rem; 
 }
   
 .search__input:hover, .search__input:focus {
@@ -152,7 +153,7 @@ a.styled-button-delete:active {
   
 .search__button {
     position: relative;
-    right: 30px; /* Adjust the position of the button as needed */
+    right: 30px;                    -Adjust the position of the button as needed 
     background-color: #f4f2f2;
     border: none;
     cursor: pointer;
@@ -172,6 +173,7 @@ a.styled-button-delete:active {
     fill: #b4b4b4;
 }
 
+*/
 
 
 /* UI opensource task cards  CSS */
@@ -255,7 +257,53 @@ a.styled-button-delete:active {
   
 
 
+/* Add item bar */
+.button-add {
+    --main-focus: #2d8cf0;
+    --font-color: #323232;
+    --bg-color-sub: #dedede;
+    --bg-color: #eee;
+    --main-color: #323232;
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; Center content horizontally */
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none; /* Ensures no underline for link */
+    transition: all 0.3s; /* Apply transition to the button itself */
+  }
+  
+  /* .button-add, .button__icon, .button__text {
+    text-decoration: none;
+    transition: all 0.3s;
+  } */
+  
+
 /* Tutorial tasks CSS  */
+
+/* Search bar  */
+.search-add-wrapper{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+.add-task {
+    color: #EB796F;
+    text-decoration: none;
+    font-size: 42px;
+    text-shadow: 1px 1px #81413b;
+}
+
 .task-wrapper{
     display: flex;
     align-items: center;
@@ -299,4 +347,82 @@ a.styled-button-delete:active {
     padding: 20px 0px;
 }
 
+/* Search bar  */
+.container-input {
+    position: relative;
+}
+.input {
+    width: 150px;
+    padding: 10px 0px 10px 40px;
+    border-radius: 9999px;
+    border: solid 1px #333;
+    transition: all .2s ease-in-out;
+    outline: none;
+    opacity: 0.8;
+}
+.container-input svg {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(0, -50%);
+}
+.input:focus {
+    opacity: 1;
+    width: 250px;
+}
+
+
+
+  /* Add task button */
+  
+  .button-add .button__text {
+    color: var(--font-color);
+    font-weight: 700;
+    transition: all 0.3s; /* Apply transition to the text */
+    text-decoration: none !important;
+    margin-left: 20px;
+  }
+  .button-add .button__text .a {
+    text-decoration: none; /* Remove underline for anchor elements inside the button */
+  }
+  .add-button-link {
+    text-decoration: none; /* Remove underline for the anchor element */
+}
+  .button-add .button__icon {
+    position: absolute;
+    top: 0;
+    right: 0; /* Start the icon at the right edge */
+    /* transform: translateX(109px); */
+    height: 100%;
+    width: 39px;
+    background-color: var(--bg-color-sub);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s; /* Apply transition to the icon */
+  }
+  
+  .button-add .svg {
+    width: 20px;
+    fill: var(--main-color);
+  }
+  
+  .button-add:hover {
+    background: var(--bg-color);
+  }
+  
+  .button-add:hover .button__text {
+    color: transparent;
+  }
+  
+  .button-add:hover .button__icon {
+    width: 100%; /* Ensure the icon covers the entire button */
+    right: 0; /* Ensure the icon stays at the right edge */
+    transform: none; /* Reset any transforms */
+  }
+  
+  .button-add:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px var(--main-color);
+  }
 

@@ -40,20 +40,31 @@
     <input type="submit" value="Search">
 </form> -->
 
-<form id="search-form" action="/search" method="get">
-<div class="search">
-    <input type="text" class="search__input" placeholder="Search">
-    <button class="search__button">
-        <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
-            <g>
-                <path d="M21.53 20.47l-3.66-3.66C19.195 15.24 20 13.214 20 11c0-4.97-4.03-9-9-9s-9 4.03-9 9 4.03 9 9 9c2.215 0 4.24-.804 5.808-2.13l3.66 3.66c.147.146.34.22.53.22s.385-.073.53-.22c.295-.293.295-.767.002-1.06zM3.5 11c0-4.135 3.365-7.5 7.5-7.5s7.5 3.365 7.5 7.5-3.365 7.5-7.5 7.5-7.5-3.365-7.5-7.5z"></path>
-            </g>
-        </svg>
-    </button>
-</div>
-</form>
 
-<div class="task-item-wrapper">
+<div class ="search-add-wrapper">
+    <form class="container-input" method="get" id="search-form">
+        <input type="text" class="input" id="search-input" placeholder="Search" name="search-area">
+        <svg fill="#000000" width="20px" height="20px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+          <path d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z" fill-rule="evenodd"></path>
+        </svg>
+    </form>
+
+    <a id="add-task" href="{% url 'task-create' %}" class="add-button-link" >
+    <button class="button-add" type="button">
+        <span class="button__text">Add Item</span>
+        <span class="button__icon">
+            <svg class="svg" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                <line x1="12" x2="12" y1="5" y2="19"></line>
+                <line x1="5" x2="19" y1="12" y2="12"></line>
+            </svg>
+        </span>
+    </button>
+    </a>
+</div>
+</button>
+
+
+<div class="task-item-wrapper" id="task-list">
     {% for task in tasks %}
         <div class="task-wrapper">
             {% if task.complete %}
@@ -129,22 +140,6 @@
     {% endfor %}
 </table> -->
 
-
-
-
-<script>
-    function clearSearchHint(input) {
-        if (input.value === "Search") {
-            input.value = "";
-        }
-    }
-    function restoreSearchHint(input) {
-        if (input.value === "") {
-            document.getElementById("search-form").submit(); // Submit the form when search input is cleared
-            input.value = "Search";
-        }
-    }
-</script>
 
 {% endblock content %}
 <!-- </html> -->
